@@ -1,0 +1,13 @@
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\3cx_plugin.dll.config
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\3cx_plugin.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\3cx_plugin.pdb
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\Newtonsoft.Json.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\System.Net.Http.Extensions.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\System.Net.Http.Primitives.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\Newtonsoft.Json.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\System.Net.Http.Extensions.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\bin\Debug\System.Net.Http.Primitives.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\obj\Debug\3cx_plugin.csproj.App.config
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\obj\Debug\3cx_plugin.csprojResolveAssemblyReference.cache
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\obj\Debug\3cx_plugin.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\3cx_plugin\obj\Debug\3cx_plugin.pdb

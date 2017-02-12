@@ -1,0 +1,15 @@
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\3cx_plugin.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\3cx_plugin.pdb
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\System.Net.Http.Extensions.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\System.Net.Http.Primitives.dll
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\System.Net.Http.Extensions.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\bin\Debug\System.Net.Http.Primitives.xml
+c:\users\kristian\documents\visual studio 2015\Projects\3cx_plugin\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.App.config
