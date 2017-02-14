@@ -371,7 +371,7 @@ class API {
 	 * @return boolean
 	 */
 	protected function find_config_errors(){
-		if(!isset($this->default_order_by)) $this->config_errors[] = "a default order must be specified using API::set_default_order()";
+		//if(!isset($this->default_order_by)) $this->config_errors[] = "a default order must be specified using API::set_default_order()";
 		if(!isset($this->default_search_order_by) && $this->search_allowed){
 			$this->config_errors[] = "a default search order must be specified using API::set_default_search_order() if search is enabled with API::set_searchable()";
 		}
@@ -393,12 +393,9 @@ class API {
 		$exact = false;
 		$count_only = false;
 		$exclude = array();
-		$this->API_key = "";
-
+		$this->API_key = "";		
 		//distribute $_GETs to their appropriate arrays/vars
 		foreach($get_array as $parameter => $value){
-			
-			print_r($columns_to_provide_array);
 			if($this->is_column_parameter($parameter, $this->columns_to_provide_array)){ 
 				$column_parameters[$parameter] = $value;
 			}
@@ -468,7 +465,8 @@ class API {
 			$this->is_column_parameter($order_by, $this->columns_to_provide_array)){
 				$order_by_string = "ORDER BY $order_by ";
 			}
-			else $order_by_string = "ORDER BY " . $this->default_order_by . " ";
+			else if (isset($this->default_order_by)){
+			$order_by_string = "ORDER BY " . $this->default_order_by . " ";
 			$query .= $order_by_string;
 
 			//add FLOW statement
@@ -480,7 +478,8 @@ class API {
 				$flow_string = "$flow ";
 			}
 			else $flow_string = $this->default_flow . " ";
-			$query .= $flow_string;
+				$query .= $flow_string;
+			}
 		}
 		//only add LIMIT of it is not a COUNT query
 		if(!$count_only){
@@ -504,8 +503,6 @@ class API {
 			$page > 1){
 			$query .= " OFFSET " . $limit * ($page -1);
 		}
-
-		//echo $query . "<br/>";
 		return $query;
 	}
 

@@ -12,7 +12,15 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             DAL data = new DAL();
-            var city = data.Get<Actor>("/get/actor/actor_id=200");
+            City brum = new City()
+            {
+                city_id = 601,
+                city = "Birmingham",
+                country_id = 102,
+                last_update = DateTime.Now
+            };
+            data.Post<City>(brum);
+           // var actor = data.Get<Actor>("/get/actor/actor_id=200");
             Console.ReadLine();
         }
     }
@@ -32,10 +40,9 @@ namespace ConsoleApplication1
 
     class City
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string CountryCode { get; set; }
-        public string District { get; set; }
-        public int Population { get; set; }
+        public int city_id { get; set; }
+        public string city { get; set; }
+        public int country_id { get; set; }
+        public DateTime last_update { get; set; }
     }
 }

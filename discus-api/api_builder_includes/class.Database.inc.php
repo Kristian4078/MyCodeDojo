@@ -52,7 +52,14 @@ class Database {
 			$query .= ") VALUES (";
 			foreach($post_array as $key => $value){
 				//if($key == 'lat' || $key == 'lon' || $value == 0) $query .= " " . $value . ",";
-				$query .= " '" . $value . "',";
+				if(is_numeric($value))
+				{
+					$query .= " " . $value . ",";	
+				}
+				else
+				{
+					$query .= " '" . $value . "',";
+				}
 			}
 			$query = rtrim($query, ",");
 			$query .= ");";
@@ -70,6 +77,8 @@ class Database {
 			echo "incorrect parameters passed to InsertUpdate::execute_from_assoc()";
 		 	return false;
 		}
+		print $query;
+		//print $query;
 		return self::execute_sql($query);
 	}
 	

@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DataResponse.cs" />
+    <Compile Include="Helpers\DataResponse.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Interface\IDataResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -34,6 +34,27 @@ namespace _3cx_plugin
                 throw e;
             }           
         }
+
+        
+        public async void Post<T>(object post) where T : class {
+            try
+            {
+                string targetEndpoint = url.ToString() + "/POST/" + typeof(T).Name;
+
+                var content = JsonConvert.SerializeObject(post);                
+                var response = await client.PostAsync(targetEndpoint, new StringContent(content));         
+                Console.Read();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+        }
+
+
+        
         
     }
 }
