@@ -4,10 +4,10 @@
 	 //set page to output JSON
 	 header("Content-Type: application/json; charset=utf-8");
 
-	 $host = "127.0.0.1";
-	 $database = "sakila";
+	 $host = "discus-vision";
+	 $database = "vision_discus";
 	 $db_user = "root";
-	 $db_password = "Lizzard.2016";
+	 $db_password = "discus";
 
 	$uri = explode("/", $_SERVER["REQUEST_URI"]);
 	$request = strtoupper($uri[1]);
@@ -46,32 +46,29 @@
 	 		exit();				
 			break;	
 		case 'POST':   
-			var_dump($_POST);
-			print $_POST["data"] . "<br>";
-			print "test";
-
-			exit();
-			$_POST = array();
-			$_POST["city_id"] = 601;	
-			$_POST["city"] = "Birmingham";
-			$_POST["country_id"] = 102;
-            // Sanitize the array so that it can be safely inserted into the database.
+		    // Sanitize the array so that it can be safely inserted into the database.
             // This method uses MySQLi real escape string and htmlspecialchars encoding.
-
-            $post_array = Database::clean($_POST);
-                        print_r($post_array);
-
-
-
-            if(Database::execute_from_assoc($post_array, Database::$table)){
-                echo "The data was submitted to the database";
-            }else echo "There was an error submitting the data to the database";
+				$data = json_decode($_POST["data"], true);
+	            $post_array = Database::clean($data);
+	            if(Database::execute_from_assoc($post_array, Database::$table)){
+	                echo "The data was submitted to the database";
+	            }else echo "There was an error submitting the data to the database";
+            exit();
 			break;
 		case 'PUT':
-			
+				$data = json_decode($_POST["data"], true);						
+	            $put_array = Database::clean($data);          
+	            if(Database::execute_from_assoc($put_array, Database::$table, $_POST["id_column_name"])){
+	                echo "The data was submitted to the database";
+	            }else echo "There was an error submitting the data to the database";
+          	exit();
 			break;
 		case 'DELETE':
-			
+				$data = json_decode($_POST["id_column_name"], true);						
+	            $delete_array = Database::clean($data);  
+				if(Database::execute_delete($delete_array, Database::$table)){
+		                echo "The data was deleted";
+	            }else echo "There was an error deleting the data to the database";
 			break;
 		default:
 			if(empty($request))

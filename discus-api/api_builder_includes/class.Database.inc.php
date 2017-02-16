@@ -40,10 +40,43 @@ class Database {
 		return false;
 	}
 
+	public static function build_sql_update($myarray) {
+		$rows = array();
+		if (is_array($myarray) and count($myarray)) {
+			foreach($myarray as $key=>$value) {
+				$rows[] = "`$key`='$value'";
+			}
+		} else {
+			print "Error building SQL array";
+			print backtrace_table();
+			print "<pre>\n";
+			print_r($myarray);
+			print_r($_POST);
+			print "</pre>\n";
+			exit();
+		}
+
+		if (!count($rows)) {
+			print "Build SQL update - Invalid query array";
+			exit();
+		}
+
+		$rows = "SET ".implode(", ",$rows);
+
+		return $rows;
+
+	}
+
+	public static function execute_delete($table_name, $id_column_name, $id)
+	{
+		$query("DELETE $table_name WHERE $id_column_name = ''");
+	}
+
+
 	//handles dynamic formation of INSERT and UPDATE queries from $_POST and executes them
 	//post array should be cleaned before using this function
-	public static function execute_from_assoc($post_array, $table_name, $set_statement=NULL){
-		if($set_statement == NULL){
+	public static function execute_from_assoc($post_array, $table_name, $update_id_name=NULL){		
+		if($update_id_name == NULL){
 			$query = "INSERT INTO " . $table_name . " ("; 
 			foreach($post_array as $key => $value){
 				$query .= " `" . $key . "`,";
@@ -66,19 +99,17 @@ class Database {
 		}
 		//if statement type is UPDATE, the id of the row to update was specified in the $post_array,
 		//and what to update (set) was specified
-		else if($set_statement != NULL &&
-			 isset($post_array['id']) &&
-			 !empty($post_array['id'])){
-			$set_statement = trim($set_statement);
-			$query = "UPDATE " . $table_name . " SET " . $set_statement . " = '" . $post_array[$set_statement]
-			. "' WHERE id ='" . $post_array['id'] . "' LIMIT 1";
-		}
+		else if($update_id_name != NULL){			
+				$id = addslashes($post_array[$update_id_name]);				
+				unset($post_array[$update_id_name]);
+				$update = self::build_sql_update($post_array);
+				$query = "UPDATE $table_name $update WHERE $update_id_name = '$id'";
+				print $query;	
+			}
 		else{
 			echo "incorrect parameters passed to InsertUpdate::execute_from_assoc()";
 		 	return false;
 		}
-		print $query;
-		//print $query;
 		return self::execute_sql($query);
 	}
 	
